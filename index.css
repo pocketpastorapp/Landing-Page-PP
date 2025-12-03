@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles that were previously in body classes can be reinforced here if needed, 
+   but keeping them in HTML is also fine with Tailwind */
