@@ -1,20 +1,17 @@
 import React from 'react';
 import { ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-interface TermsOfServiceProps {
-  onBack: () => void;
-}
-
-const TermsOfService: React.FC<TermsOfServiceProps> = ({ onBack }) => {
+const TermsOfService: React.FC = () => {
   return (
     <div className="pt-8 pb-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto animate-fade-in">
-      <button 
-        onClick={onBack}
+      <Link
+        to="/"
         className="group flex items-center text-textSecondary hover:text-primary transition-colors mb-8 font-medium"
       >
         <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
         Back to Home
-      </button>
+      </Link>
 
       <h1 className="text-4xl md:text-5xl font-serif font-bold text-text mb-6">Terms of Service</h1>
       <p className="text-textSecondary text-lg mb-12">Effective Date: October 24, 2024</p>
@@ -34,9 +31,9 @@ const TermsOfService: React.FC<TermsOfServiceProps> = ({ onBack }) => {
           Pocket Pastor provides digital tools for spiritual growth, including Bible verses, prayer tracking, and AI-assisted pastoral guidance. You agree to use these services only for lawful purposes and in accordance with these Terms.
         </p>
         <ul className="list-disc pl-5 mb-8 space-y-3 marker:text-primary">
-            <li>You must be at least 13 years old to use this Service.</li>
-            <li>You are responsible for maintaining the confidentiality of your account.</li>
-            <li>You agree not to misuse the AI chat feature for harmful or illegal activities.</li>
+          <li>You must be at least 13 years old to use this Service.</li>
+          <li>You are responsible for maintaining the confidentiality of your account.</li>
+          <li>You agree not to misuse the AI chat feature for harmful or illegal activities.</li>
         </ul>
 
         <h3 className="text-2xl font-bold text-text mt-12 mb-6 font-serif border-b border-primary/10 pb-2">3. AI Disclaimer</h3>
@@ -55,7 +52,7 @@ const TermsOfService: React.FC<TermsOfServiceProps> = ({ onBack }) => {
         </p>
 
         <p className="italic text-sm text-textSecondary/60 mt-10 border-t border-primary/10 pt-4">
-            These Terms of Service are for demonstration purposes.
+          These Terms of Service are for demonstration purposes.
         </p>
       </div>
     </div>

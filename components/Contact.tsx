@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Mail, Send } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-interface ContactProps {
-  onBack: () => void;
-}
-
-const Contact: React.FC<ContactProps> = ({ onBack }) => {
+const Contact: React.FC = () => {
   const [formState, setFormState] = useState({
     name: '',
     email: '',
@@ -34,13 +31,13 @@ const Contact: React.FC<ContactProps> = ({ onBack }) => {
 
   return (
     <div className="pt-8 pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto animate-fade-in">
-      <button 
-        onClick={onBack}
+      <Link
+        to="/"
         className="group flex items-center text-textSecondary hover:text-primary transition-colors mb-8 font-medium"
       >
         <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
         Back to Home
-      </button>
+      </Link>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
         {/* Contact Info */}
@@ -75,8 +72,8 @@ const Contact: React.FC<ContactProps> = ({ onBack }) => {
               </div>
               <h3 className="text-2xl font-serif font-bold text-text mb-2">Message Sent!</h3>
               <p className="text-textSecondary">Thank you for reaching out. We'll get back to you shortly.</p>
-              <button 
-                onClick={() => { setIsSent(false); setFormState({name: '', email: '', subject: '', message: ''}) }}
+              <button
+                onClick={() => { setIsSent(false); setFormState({ name: '', email: '', subject: '', message: '' }) }}
                 className="mt-8 text-primary font-medium hover:underline"
               >
                 Send another message
@@ -143,9 +140,8 @@ const Contact: React.FC<ContactProps> = ({ onBack }) => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full bg-primary text-white py-4 rounded-xl font-medium shadow-md transition-all ${
-                  isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-[#435525] hover:shadow-lg active:scale-95'
-                }`}
+                className={`w-full bg-primary text-white py-4 rounded-xl font-medium shadow-md transition-all ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-[#435525] hover:shadow-lg active:scale-95'
+                  }`}
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>

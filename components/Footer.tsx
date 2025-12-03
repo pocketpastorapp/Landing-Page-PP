@@ -1,27 +1,38 @@
 import React from 'react';
 import { Instagram, Facebook } from 'lucide-react';
-import { PageView } from '../App';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
-interface FooterProps {
-  onNavigate: (page: PageView) => void;
-  onSectionClick: (sectionId: string) => void;
-}
+const Footer: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
 
-const Footer: React.FC<FooterProps> = ({ onNavigate, onSectionClick }) => {
+  const handleSectionClick = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="bg-white border-t border-primary/10 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="col-span-1 md:col-span-1">
-             <div className="flex items-center mb-4 cursor-pointer" onClick={() => onNavigate('home')}>
-              <img 
-                src="https://pub-e001eb4506b145aa938b5d3badbff6a5.r2.dev/attachments/ks06ttrumobl7vg6g6x7x" 
-                alt="Pocket Pastor Logo" 
+            <Link to="/" className="flex items-center mb-4 cursor-pointer">
+              <img
+                src="https://pub-e001eb4506b145aa938b5d3badbff6a5.r2.dev/attachments/ks06ttrumobl7vg6g6x7x"
+                alt="Pocket Pastor Logo"
                 className="h-8 w-auto object-contain"
               />
               <span className="ml-2 text-lg font-serif font-bold text-text">Pocket Pastor</span>
-            </div>
+            </Link>
             <p className="text-textSecondary text-sm leading-relaxed mb-6">
               Your daily companion for spiritual growth, prayer, and biblical wisdom.
             </p>
@@ -40,10 +51,10 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onSectionClick }) => {
             <h4 className="font-bold text-text mb-4">Product</h4>
             <ul className="space-y-3 text-sm text-textSecondary">
               <li>
-                <button onClick={() => onSectionClick('features')} className="hover:text-primary transition-colors text-left">Features</button>
+                <button onClick={() => handleSectionClick('features')} className="hover:text-primary transition-colors text-left">Features</button>
               </li>
               <li>
-                <button onClick={() => onNavigate('faq')} className="hover:text-primary transition-colors text-left">FAQ</button>
+                <Link to="/faq" className="hover:text-primary transition-colors text-left">FAQ</Link>
               </li>
             </ul>
           </div>
@@ -53,10 +64,10 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onSectionClick }) => {
             <h4 className="font-bold text-text mb-4">Company</h4>
             <ul className="space-y-3 text-sm text-textSecondary">
               <li>
-                 <button onClick={() => onSectionClick('about')} className="hover:text-primary transition-colors text-left">About Us</button>
+                <button onClick={() => handleSectionClick('about')} className="hover:text-primary transition-colors text-left">About Us</button>
               </li>
               <li>
-                 <button onClick={() => onNavigate('contact')} className="hover:text-primary transition-colors text-left">Contact</button>
+                <Link to="/contact" className="hover:text-primary transition-colors text-left">Contact</Link>
               </li>
             </ul>
           </div>
@@ -66,28 +77,28 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onSectionClick }) => {
             <h4 className="font-bold text-text mb-4">Legal</h4>
             <ul className="space-y-3 text-sm text-textSecondary">
               <li>
-                <button 
-                  onClick={() => onNavigate('privacy')}
+                <Link
+                  to="/privacy-policy"
                   className="hover:text-primary transition-colors text-left"
                 >
                   Privacy Policy
-                </button>
+                </Link>
               </li>
               <li>
-                <button 
-                  onClick={() => onNavigate('terms')}
+                <Link
+                  to="/terms-of-service"
                   className="hover:text-primary transition-colors text-left"
                 >
                   Terms of Service
-                </button>
+                </Link>
               </li>
               <li>
-                <button 
-                  onClick={() => onNavigate('cookies')}
+                <Link
+                  to="/cookie-policy"
                   className="hover:text-primary transition-colors text-left"
                 >
                   Cookie Policy
-                </button>
+                </Link>
               </li>
             </ul>
           </div>

@@ -1,20 +1,17 @@
 import React from 'react';
 import { ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-interface CookiePolicyProps {
-  onBack: () => void;
-}
-
-const CookiePolicy: React.FC<CookiePolicyProps> = ({ onBack }) => {
+const CookiePolicy: React.FC = () => {
   return (
     <div className="pt-8 pb-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto animate-fade-in">
-      <button 
-        onClick={onBack}
+      <Link
+        to="/"
         className="group flex items-center text-textSecondary hover:text-primary transition-colors mb-8 font-medium"
       >
         <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
         Back to Home
-      </button>
+      </Link>
 
       <h1 className="text-4xl md:text-5xl font-serif font-bold text-text mb-6">Cookie Policy</h1>
       <p className="text-textSecondary text-lg mb-12">Effective Date: October 24, 2024</p>
@@ -53,7 +50,7 @@ const CookiePolicy: React.FC<CookiePolicyProps> = ({ onBack }) => {
         </p>
 
         <p className="italic text-sm text-textSecondary/60 mt-10 border-t border-primary/10 pt-4">
-            This Cookie Policy is for demonstration purposes.
+          This Cookie Policy is for demonstration purposes.
         </p>
       </div>
     </div>

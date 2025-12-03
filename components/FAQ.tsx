@@ -1,16 +1,13 @@
 import React from 'react';
 import { ArrowLeft, Plus, Minus } from 'lucide-react';
-
-interface FAQProps {
-  onBack: () => void;
-}
+import { Link } from 'react-router-dom';
 
 const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, answer }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <div className="border-b border-primary/10 last:border-0">
-      <button 
+      <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full py-6 flex items-center justify-between text-left focus:outline-none group"
       >
@@ -21,7 +18,7 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, ans
           {isOpen ? <Minus className="text-primary" /> : <Plus className="text-textSecondary" />}
         </span>
       </button>
-      <div 
+      <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100 pb-6' : 'max-h-0 opacity-0'}`}
       >
         <p className="text-textSecondary leading-relaxed pr-8">
@@ -32,7 +29,7 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, ans
   );
 };
 
-const FAQ: React.FC<FAQProps> = ({ onBack }) => {
+const FAQ: React.FC = () => {
   const faqs = [
     {
       question: "Is Pocket Pastor free to use?",
@@ -62,13 +59,13 @@ const FAQ: React.FC<FAQProps> = ({ onBack }) => {
 
   return (
     <div className="pt-8 pb-24 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto animate-fade-in">
-      <button 
-        onClick={onBack}
+      <Link
+        to="/"
         className="group flex items-center text-textSecondary hover:text-primary transition-colors mb-8 font-medium"
       >
         <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
         Back to Home
-      </button>
+      </Link>
 
       <div className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-serif font-bold text-text mb-6">Frequently Asked Questions</h1>
