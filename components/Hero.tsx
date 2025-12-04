@@ -55,15 +55,42 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Image/Mockup Content */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end animate-fade-in-right">
-            <div className="relative">
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end animate-fade-in-right w-full">
+            <div className="relative w-full max-w-[600px] lg:max-w-none">
               {/* Decorative elements behind phone */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-accent/20 rounded-full blur-3xl -z-10"></div>
-              <img
-                src="/app-mockup.png"
-                alt="Pocket Pastor App Interface"
-                className="w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[400px] h-auto drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500"
-              />
+
+              {/* Desktop Layout: Overlapping Fan Style */}
+              <div className="hidden lg:flex justify-center items-center space-x-[-60px] xl:space-x-[-80px]">
+                <img
+                  src="/app-bible.png"
+                  alt="Bible Reading"
+                  className="w-[240px] xl:w-[260px] h-auto rounded-[2.5rem] shadow-2xl transform -rotate-12 translate-y-8 hover:rotate-0 hover:translate-y-0 hover:z-30 transition-all duration-500 z-10 border-4 border-white/20"
+                />
+                <img
+                  src="/app-home.png"
+                  alt="Home Screen"
+                  className="w-[260px] xl:w-[280px] h-auto rounded-[2.5rem] shadow-2xl z-20 hover:scale-105 hover:z-30 transition-all duration-500 border-4 border-white/20"
+                />
+                <img
+                  src="/app-chat.png"
+                  alt="AI Chat"
+                  className="w-[240px] xl:w-[260px] h-auto rounded-[2.5rem] shadow-2xl transform rotate-12 translate-y-8 hover:rotate-0 hover:translate-y-0 hover:z-30 transition-all duration-500 z-10 border-4 border-white/20"
+                />
+              </div>
+
+              {/* Mobile Layout: Horizontal Scroll Carousel */}
+              <div className="lg:hidden flex overflow-x-auto snap-x snap-mandatory space-x-6 pb-8 px-4 -mx-4 scrollbar-hide">
+                <div className="snap-center shrink-0 first:pl-4 last:pr-4">
+                  <img src="/app-home.png" alt="Home Screen" className="w-[260px] h-auto rounded-[2rem] shadow-xl border-2 border-white/20" />
+                </div>
+                <div className="snap-center shrink-0 first:pl-4 last:pr-4">
+                  <img src="/app-bible.png" alt="Bible Reading" className="w-[260px] h-auto rounded-[2rem] shadow-xl border-2 border-white/20" />
+                </div>
+                <div className="snap-center shrink-0 first:pl-4 last:pr-4">
+                  <img src="/app-chat.png" alt="AI Chat" className="w-[260px] h-auto rounded-[2rem] shadow-xl border-2 border-white/20" />
+                </div>
+              </div>
             </div>
           </div>
 
