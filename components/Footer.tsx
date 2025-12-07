@@ -22,9 +22,9 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-white border-t border-primary/10 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-3 md:grid-cols-4 gap-x-4 gap-y-8 md:gap-12 mb-12">
           {/* Brand */}
-          <div className="col-span-1 md:col-span-1">
+          <div className="col-span-3 md:col-span-1">
             <Link to="/" className="flex items-center mb-4 cursor-pointer">
               <img
                 src="https://pub-e001eb4506b145aa938b5d3badbff6a5.r2.dev/attachments/ks06ttrumobl7vg6g6x7x"
@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
             <h4 className="font-bold text-text mb-4">Company</h4>
             <ul className="space-y-3 text-sm text-textSecondary">
               <li>
-                <button onClick={() => handleSectionClick('about')} className="hover:text-primary transition-colors text-left">About Us</button>
+                <Link to="/about-us" className="hover:text-primary transition-colors text-left">About Us</Link>
               </li>
               <li>
                 <Link to="/contact" className="hover:text-primary transition-colors text-left">Contact</Link>

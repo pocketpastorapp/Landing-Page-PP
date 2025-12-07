@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useNavigate, useLocation 
 import Hero from './components/Hero';
 import Features from './components/Features';
 import About from './components/About';
+import AboutUs from './components/AboutUs';
 import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
@@ -79,6 +80,12 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               >
                 Mission
               </a>
+              <Link
+                to="/about-us"
+                className="text-text hover:text-primary transition-colors font-medium"
+              >
+                About Us
+              </Link>
               <button className="bg-primary hover:bg-[#435525] text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-md hover:shadow-lg active:scale-95">
                 Download App
               </button>
@@ -115,6 +122,13 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               >
                 Mission
               </a>
+              <Link
+                to="/about-us"
+                className="block px-3 py-3 rounded-md text-base font-medium text-text hover:bg-surface hover:text-primary transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About Us
+              </Link>
               <div className="pt-4">
                 <button className="w-full bg-primary text-white px-6 py-3 rounded-full font-medium shadow-md">
                   Download App
@@ -149,6 +163,7 @@ const App: React.FC = () => {
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/about-us" element={<AboutUs />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/faq" element={<FAQ />} />
