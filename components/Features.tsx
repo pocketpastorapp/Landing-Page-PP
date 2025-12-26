@@ -8,12 +8,12 @@ interface FeatureCardProps {
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description }) => (
-  <div className="bg-white p-8 rounded-3xl shadow-soft hover:shadow-lg transition-all duration-300 border border-transparent hover:border-primary/10 group h-full">
-    <div className="w-14 h-14 bg-surface rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors text-primary">
+  <div className="bg-white dark:bg-dark-surface p-8 rounded-3xl shadow-soft dark:shadow-none hover:shadow-lg dark:hover:border-primary/30 transition-all duration-300 border border-transparent dark:border-white/5 hover:border-primary/10 group h-full">
+    <div className="w-14 h-14 bg-surface dark:bg-dark-bg rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors text-primary">
       {icon}
     </div>
-    <h3 className="text-xl font-serif font-bold text-text mb-3">{title}</h3>
-    <p className="text-textSecondary leading-relaxed">{description}</p>
+    <h3 className="text-xl font-serif font-bold text-text dark:text-dark-text mb-3">{title}</h3>
+    <p className="text-textSecondary dark:text-dark-textSecondary leading-relaxed">{description}</p>
   </div>
 );
 
@@ -52,19 +52,19 @@ const Features: React.FC = () => {
   ];
 
   return (
-    <section id="features" className="py-24 bg-surface/50">
+    <section id="features" className="py-24 bg-surface/50 dark:bg-dark-bg/50 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-base text-primary font-bold tracking-wide uppercase mb-2">Features</h2>
-          <h3 className="text-3xl md:text-4xl font-serif font-bold text-text mb-4">Everything you need to grow in faith</h3>
-          <p className="text-lg text-textSecondary">
+          <h3 className="text-3xl md:text-4xl font-serif font-bold text-text dark:text-dark-text mb-4">Everything you need to grow in faith</h3>
+          <p className="text-lg text-textSecondary dark:text-dark-textSecondary">
             Designed with simplicity and depth, providing the tools you need for a consistent walk with God.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <FeatureCard 
+            <FeatureCard
               key={index}
               icon={feature.icon}
               title={feature.title}

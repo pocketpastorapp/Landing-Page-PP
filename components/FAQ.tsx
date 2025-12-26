@@ -6,22 +6,22 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, ans
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <div className="border-b border-primary/10 last:border-0">
+    <div className="border-b border-primary/10 dark:border-white/5 last:border-0">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full py-6 flex items-center justify-between text-left focus:outline-none group"
       >
-        <span className={`text-lg font-serif font-bold transition-colors ${isOpen ? 'text-primary' : 'text-text group-hover:text-primary'}`}>
+        <span className={`text-lg font-serif font-bold transition-colors ${isOpen ? 'text-primary' : 'text-text dark:text-dark-text group-hover:text-primary'}`}>
           {question}
         </span>
         <span className={`ml-4 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
-          {isOpen ? <Minus className="text-primary" /> : <Plus className="text-textSecondary" />}
+          {isOpen ? <Minus className="text-primary" /> : <Plus className="text-textSecondary dark:text-dark-textSecondary" />}
         </span>
       </button>
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100 pb-6' : 'max-h-0 opacity-0'}`}
       >
-        <p className="text-textSecondary leading-relaxed pr-8">
+        <p className="text-textSecondary dark:text-dark-textSecondary leading-relaxed pr-8">
           {answer}
         </p>
       </div>
@@ -58,26 +58,28 @@ const FAQ: React.FC = () => {
   ];
 
   return (
-    <div className="pt-8 pb-24 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto animate-fade-in">
-      <Link
-        to="/"
-        className="group flex items-center text-textSecondary hover:text-primary transition-colors mb-8 font-medium"
-      >
-        <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
-        Back to Home
-      </Link>
+    <div className="min-h-screen bg-cream dark:bg-dark-bg pt-8 pb-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+      <div className="max-w-3xl mx-auto animate-fade-in">
+        <Link
+          to="/"
+          className="group inline-flex items-center text-textSecondary dark:text-dark-textSecondary hover:text-primary dark:hover:text-primary transition-colors mb-8 font-medium"
+        >
+          <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
+          Back to Home
+        </Link>
 
-      <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-serif font-bold text-text mb-6">Frequently Asked Questions</h1>
-        <p className="text-textSecondary text-lg max-w-xl mx-auto">
-          Find answers to common questions about features, privacy, and your spiritual journey with Pocket Pastor.
-        </p>
-      </div>
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-serif font-bold text-text dark:text-dark-text mb-6">Frequently Asked Questions</h1>
+          <p className="text-textSecondary dark:text-dark-textSecondary text-lg max-w-xl mx-auto">
+            Find answers to common questions about features, privacy, and your spiritual journey with Pocket Pastor.
+          </p>
+        </div>
 
-      <div className="bg-white rounded-[2rem] shadow-soft p-8 border border-primary/5">
-        {faqs.map((faq, index) => (
-          <FAQItem key={index} question={faq.question} answer={faq.answer} />
-        ))}
+        <div className="bg-white dark:bg-dark-surface rounded-[2rem] shadow-soft dark:shadow-none p-8 border border-primary/5 dark:border-white/5">
+          {faqs.map((faq, index) => (
+            <FAQItem key={index} question={faq.question} answer={faq.answer} />
+          ))}
+        </div>
       </div>
     </div>
   );

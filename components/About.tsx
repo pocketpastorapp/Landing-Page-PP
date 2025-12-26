@@ -2,9 +2,9 @@ import React from 'react';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-24 bg-cream">
+    <section id="about" className="py-24 bg-cream dark:bg-dark-bg transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-primary rounded-[3rem] overflow-hidden shadow-xl relative">
+        <div className="bg-primary rounded-[3rem] overflow-hidden shadow-xl relative dark:shadow-none dark:border dark:border-white/5">
           {/* Background pattern */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
