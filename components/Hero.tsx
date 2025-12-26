@@ -11,8 +11,8 @@ const Hero: React.FC = () => {
           {/* Text Content */}
           <div className="order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left">
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-surface border border-primary/20 text-textSecondary text-sm font-medium mb-8 animate-fade-in-up">
-              <span className="w-2 h-2 rounded-full bg-primary mr-2"></span>
-              Now available on iOS and Android
+              <span className="w-2 h-2 rounded-full bg-primary/40 mr-2 animate-pulse"></span>
+              Launching Soon on iOS & Android
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-text leading-tight mb-6 animate-fade-in-up delay-100">
@@ -25,21 +25,21 @@ const Hero: React.FC = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
-              <button className="flex items-center justify-center space-x-3 bg-text text-white px-8 py-4 rounded-2xl hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl active:scale-95 group">
-                <Apple size={24} className="group-hover:text-gray-300 transition-colors" />
+              <div className="flex items-center justify-center space-x-3 bg-text/80 text-white/70 px-8 py-4 rounded-2xl cursor-not-allowed shadow-md group">
+                <Apple size={24} className="text-white/40" />
                 <div className="text-left">
-                  <div className="text-xs text-gray-400 font-sans">Download on the</div>
+                  <div className="text-xs text-white/40 font-sans uppercase tracking-wider leading-tight">Coming soon to</div>
                   <div className="text-lg font-bold font-sans leading-none">App Store</div>
                 </div>
-              </button>
+              </div>
 
-              <button className="flex items-center justify-center space-x-3 bg-surface text-text border border-text/10 px-8 py-4 rounded-2xl hover:bg-white hover:border-primary/30 transition-all shadow-lg hover:shadow-xl active:scale-95 group">
-                <Play size={24} className="fill-text text-text group-hover:text-primary group-hover:fill-primary transition-colors" />
+              <div className="flex items-center justify-center space-x-3 bg-surface/80 text-text/60 border border-text/5 px-8 py-4 rounded-2xl cursor-not-allowed shadow-md group">
+                <Play size={24} className="fill-text/30 text-text/30" />
                 <div className="text-left">
-                  <div className="text-xs text-textSecondary font-sans">GET IT ON</div>
+                  <div className="text-xs text-textSecondary/40 font-sans uppercase tracking-wider leading-tight">Coming soon to</div>
                   <div className="text-lg font-bold font-sans leading-none">Google Play</div>
                 </div>
-              </button>
+              </div>
             </div>
 
             <div className="mt-8 flex items-center space-x-4 text-sm text-textSecondary animate-fade-in-up delay-500">
